@@ -37,4 +37,13 @@ export const products: Product[] = [
     description: "Simple cotton t-shirt",
     rating: { rate: 4.5, count: 120 },
   },
+  {
+    id: 5,
+    title: "SmartWatch",
+    price: 100,
+    category: "wearables",
+    image: "/products/5.jpg",
+    description: "Simple cotton t-shirt",
+    rating: { rate: 4.5, count: 120 },
+  },
 ]

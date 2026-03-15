@@ -5,6 +5,7 @@ import Image from "next/image"
 import { useProduct } from "@/hooks/useProduct"
 import { Button } from "@/components/ui/Button"
 import { useCart } from "@/context/CartContext"
+import { Star, X } from "@deemlol/next-icons"
 
 export default function ProductDetailPage() {
   const { id } = useParams()
@@ -27,47 +28,59 @@ export default function ProductDetailPage() {
       shadow-sm
       "
     >
-      <div className="flex justify-center">
+      <div className="rounded-xl overflow-hidden">
         <Image 
           src={data.image}
           alt={data.title}
-          width={320}
-          height={320}
-          className="h-80 object-contain"
+          width={406}
+          height={280}
+          className="h-full w-full object-contain"
         />
       </div>
 
       <div>
-        <h1 className="text-2xl font-bold">{data.title}</h1>
-
-        <p className="text-gray-600 mt-4">{data.description}</p>
-
-        <p
-          className="
-          mt-6
-          text-3xl
-          font-bold
-          text-(--primary)
-          "
-        >
-          ${data.price}
-        </p>
-
-        <div className="mt-6">
-          <Button
-            onClick={() =>
-              addItem({
-                id: data.id,
-                title: data.title,
-                price: data.price,
-                image: data.image,
-                quantity: 1,
-              })
-            }
+        <div className="flex items-center justify-between w-full mb-5">
+          <h1 className="text-3xl font-bold">{data.title}</h1>
+          
+          <Button 
+            onClick={() => window.history.back()}
+            className="bg-primary p-2 rounded-full hover:scale-110 transition"
           >
-            Add to Cart
+            <X size={16} color="white" strokeWidth={3} />
           </Button>
         </div>
+        <p className="text-gray-600 mt-4">{data.description}</p>
+
+        <div className="flex items-center justify-between w-40 mb-2 mt-2">
+
+          <p
+            className="
+            text-2xl
+            font-bold
+            text-primary
+            "
+          >
+            ${data.price}
+          </p>
+          <div className="flex items-center gap-2 rounded-full">
+            <Star size={16} color="#f59e0b" strokeWidth={3} />
+            <p>{data.rating.rate}/5 ({data.rating.count})</p>
+          </div>
+        </div>
+
+        <Button
+          onClick={() =>
+            addItem({
+              id: data.id,
+              title: data.title,
+              price: data.price,
+              image: data.image,
+              quantity: 1,
+            })
+          }
+        >
+            Add to Cart
+          </Button>
       </div>
     </div>
   )

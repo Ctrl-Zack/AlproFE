@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import { ShoppingCart } from "@deemlol/next-icons"
 import { useCart } from "@/context/CartContext"
 
 export function Navbar() {
@@ -10,9 +11,6 @@ export function Navbar() {
     <nav
       className="
       sticky top-0 z-50
-      bg-white
-      border-b
-      shadow-sm
       "
     >
       <div
@@ -31,27 +29,32 @@ export function Navbar() {
           className="
           text-xl
           font-bold
-          text-(--primary)
+          text-primary
           "
         >
           AlproShop
         </Link>
 
         <div className="flex items-center gap-6 text-sm font-medium">
+          <Link href="/">Home</Link>
           <Link href="/products">Products</Link>
           <Link href="/categories">Categories</Link>
+        </div>
 
+        <div className="flex items-center gap-6 text-sm font-medium">
           <Link
             href="/cart"
             className="
-            bg-(--secondary)
-            px-3 py-1
-            rounded-md
+            bg-secondary
+            text-white
+            px-4 py-1.5
+            flex items-center gap-2
+            rounded-full
             "
           >
+          <ShoppingCart size={16} color="white" strokeWidth={2} />
             Cart ({items.length})
           </Link>
-
         </div>
       </div>
     </nav>

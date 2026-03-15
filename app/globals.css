@@ -1,32 +1,37 @@
 @import "tailwindcss";
 
-/* :root {
-  --background: #ffffff;
-  --foreground: #171717;
+:root {
+  --background: #E7ECEF;
+  --foreground: #6096BA;
+  --primary: #274C77;
+  --secondary: #A3CEF1;
+  --bg: #E7ECEF;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0f172a; 
+    --foreground: #f8fafc;
+  }
 } */
 
-:root {
-  --primary: #0f52ba;
-  --secondary: #89cff0;
-  --bg: #f6f7f9;
-}
-
-
 @theme inline {
+  /* Map CSS variables to Tailwind utilities */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-bg: var(--bg);
+  
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Base styles using the variables */
+@layer base {
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
   }
-}
-
-body {
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
 }

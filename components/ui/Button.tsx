@@ -8,10 +8,10 @@ export function Button({ children, ...props }: React.ButtonHTMLAttributes<HTMLBu
       {...props}
       className="
       px-5 py-2
-      rounded-lg
+      rounded-full
       font-medium
       text-white
-      bg-(--primary)
+      bg-primary
       hover:brightness-110
       transition
       shadow-sm
