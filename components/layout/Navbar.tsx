@@ -6,6 +6,7 @@ import { useCart } from "@/context/CartContext"
 
 export function Navbar() {
   const { items } = useCart()
+  const totalItems = items.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
     <nav
@@ -53,7 +54,7 @@ export function Navbar() {
             "
           >
           <ShoppingCart size={16} color="white" strokeWidth={2} />
-            Cart ({items.length})
+            Cart ({totalItems})
           </Link>
         </div>
       </div>
